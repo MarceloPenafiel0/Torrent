@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9a83063-2687-4e7f-8ae9-bd0d3c6c6876" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/RemoteInterface/ClientInt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RemoteInterface/ServerInt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TrackerRMI/Tracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrackerRMI/Tracker.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +14,13 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575075471298</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Metodos del tracker ahora son syncronized">
+      <created>1575086366278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575086366278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,6 +118,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Se agrega paquete RemoteInterface y TrackerRMI" />
     <MESSAGE value="Update clase Tracker e interfaz TrackerInt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update clase Tracker e interfaz TrackerInt" />
+    <MESSAGE value="Metodos del tracker ahora son syncronized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Metodos del tracker ahora son syncronized" />
   </component>
 </project>
