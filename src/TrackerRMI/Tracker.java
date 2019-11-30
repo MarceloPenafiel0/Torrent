@@ -43,7 +43,7 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
 
     }
     @Override
-    public String[] getAddress(String FileName, String IP) {
+    public synchronized String[] getAddress(String FileName, String IP) {
         fileInf = archivosDisponibles.get(FileName);
         int num = fileInf.getNumConjuntos();
         lastIP = num;
@@ -59,7 +59,7 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
         return getIP(0);
     }
 
-    public String getIP(int actualPosition){
+    public synchronized String getIP(int actualPosition){
         if (actualPosition+1>=fileInf.getListaIPs().size()){
             actualPosition = -1;
         }
@@ -72,7 +72,7 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
         this.grabarObjeto();
     }
 
-    public void grabarObjeto(){
+    public synchronized void grabarObjeto(){
         try{
             ObjectOutputStream entrada = new ObjectOutputStream(new FileOutputStream("archivosDisponibles"));
             entrada.writeObject(archivosDisponibles);

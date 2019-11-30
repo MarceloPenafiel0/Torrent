@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b9a83063-2687-4e7f-8ae9-bd0d3c6c6876" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RemoteInterface/TrackerInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RemoteInterface/TrackerInt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TrackerRMI/Tracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrackerRMI/Tracker.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575074415992</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update clase Tracker e interfaz TrackerInt">
+      <created>1575075471298</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575075471298</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,6 +102,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Se agrega paquete RemoteInterface y TrackerRMI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agrega paquete RemoteInterface y TrackerRMI" />
+    <MESSAGE value="Update clase Tracker e interfaz TrackerInt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update clase Tracker e interfaz TrackerInt" />
   </component>
 </project>
