@@ -3,10 +3,7 @@ package TrackerRMI;
 import RemoteInterface.TrackerInt;
 import trackerServer.HiloTracker;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.net.ServerSocket;
 import java.rmi.RemoteException;
@@ -48,7 +45,6 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
     @Override
     public String[] getAddress(String FileName, String IP) {
         fileInf = archivosDisponibles.get(FileName);
-
         int num = fileInf.getNumConjuntos();
         lastIP = num;
         String [] address = new String[num];
@@ -68,5 +64,22 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
             actualPosition = -1;
         }
         return fileInf.getListaIPs().get(actualPosition+1);
+    }
+
+    @Override
+    public void updateAddress(String IP){
+        fileInf.modifyData(IP);
+        this.grabarObjeto();
+    }
+
+    public void grabarObjeto(){
+        try{
+            ObjectOutputStream entrada = new ObjectOutputStream(new FileOutputStream("archivosDisponibles"));
+            entrada.writeObject(archivosDisponibles);
+            entrada.flush();
+            entrada.close();
+        }catch(IOException e){
+            System.out.println("No se pudo abrir el archivo");
+        }
     }
 }

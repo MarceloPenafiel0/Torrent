@@ -8,4 +8,6 @@ public interface TrackerInt extends Remote {
 
     String getAltAddress(int index);
 
+    void updateAddress(String IP);
+
 }
