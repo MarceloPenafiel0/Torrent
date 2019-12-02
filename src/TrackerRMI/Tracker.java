@@ -82,9 +82,6 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
         }
     }
 
-    public int getNumConjuntos() {
-        return lastIP;
-    }
     
     
 }

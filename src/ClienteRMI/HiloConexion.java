@@ -21,6 +21,7 @@ import java.util.logging.Logger;
  * @author berenice
  */
 public class HiloConexion  extends Thread{
+<<<<<<< HEAD
     String ipServer;
     ServerInt servidor;
     TrackerInt tracker;
@@ -34,6 +35,18 @@ public class HiloConexion  extends Thread{
         this.k = k;
         this.cliente = cliente;
         this.numConjuntos = numConjuntos;
+=======
+    private String ipServer;
+    private ServerInt servidor;
+    private TrackerInt tracker;
+    private String fileName;
+    private int numConjuntos;
+    public HiloConexion(String ipServer, TrackerInt tracker,String fileName,int numConjuntos){
+        this.ipServer = ipServer;
+        this.tracker = tracker;
+        this.fileName = fileName;
+        this.numConjuntos=numConjuntos;
+>>>>>>> origin/master
     }
     
     @Override
@@ -45,7 +58,12 @@ public class HiloConexion  extends Thread{
        // while(true){
             try {
                 servidor = (ServerInt) Naming.lookup("rmi://"+ipServer);
+<<<<<<< HEAD
                 servidor.transferGroup(cliente, k, i,numConjuntos , fileName);
+=======
+                for (int k = 0;k<numConjuntos);
+                //servidor.transferGroup(client, MIN_PRIORITY, MIN_PRIORITY, NORM_PRIORITY, fileName);
+>>>>>>> origin/master
             } catch (Exception ex) {
                 ipServer = tracker.getAltAddress(0, fileName);
                 //ex.printStackTrace();
