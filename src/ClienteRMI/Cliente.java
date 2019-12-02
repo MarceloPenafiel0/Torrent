@@ -17,7 +17,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
     private String hash;
     private TrackerInt tracker;
     private String FileName;
-    protected Cliente(String FileName, Map<Integer, Object[]> map, String hash) throws RemoteException {
+    public Cliente(String FileName, Map<Integer, Object[]> map, String hash) throws RemoteException {
         this.map=map;
         this.hash=hash;
         this.FileName = FileName;
@@ -28,7 +28,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
             tracker = (TrackerInt) Naming.lookup("rmi://" + IPNAme);
             String []dir = tracker.getAddress(FileName);
             for (int i=0;i<dir.length;i++){
-                HiloConexion hilo = new HiloConexion(dir[i],tracker,FileName);
+                HiloConexion hilo = new HiloConexion(dir[i],tracker,FileName,dir.length);
             }
         }catch (Exception e){
             

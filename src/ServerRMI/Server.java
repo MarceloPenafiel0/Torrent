@@ -18,6 +18,7 @@ public class Server extends UnicastRemoteObject implements ServerInt {
     byte[] sendBytes;
     int in;
     boolean situacion_archivo;
+
     @Override
     public void transferGroup(ClientInt client, int k, int i, int numPeers, String fileName) throws RemoteException {
         final File localFile = new File( ".\\.clonedFiles\\"+fileName);

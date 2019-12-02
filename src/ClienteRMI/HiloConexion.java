@@ -42,8 +42,7 @@ public class HiloConexion  extends Thread{
         while(true){
             try {
                 servidor = (ServerInt) Naming.lookup("rmi://"+ipServer);
-                for (int k = 0;k<numConjuntos);
-                //servidor.transferGroup(client, MIN_PRIORITY, MIN_PRIORITY, NORM_PRIORITY, fileName);
+                servidor.transferGroup(client, , , NORM_PRIORITY, fileName);
             } catch (Exception ex) {
                 ipServer = tracker.getAltAddress(0, fileName);
                 //ex.printStackTrace();
