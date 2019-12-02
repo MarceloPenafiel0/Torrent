@@ -24,7 +24,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
     public void startDownload(String IPNAme){
         try {
             tracker = (TrackerInt) Naming.lookup("rmi://" + IPNAme);
-        }catch ( Exception e){
+        }catch (Exception e){
 
         }
     }
@@ -46,6 +46,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
                 return false;
             }
     }
+
 
 
 }
