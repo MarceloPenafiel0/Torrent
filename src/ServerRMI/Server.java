@@ -34,11 +34,11 @@ public class Server extends UnicastRemoteObject implements ServerInt {
             int num;
             while (in != -1){
                 num=k+numPeers*i;
-<<<<<<< HEAD
+
                 situacion_archivo = client.sendData(sendBytes, in,num);
-=======
+
                 situacion_archivo = client.sendData(sendBytes,in, num);
->>>>>>> origin/master
+
                 if (situacion_archivo){
                     archivo_enviar.skip((numPeers -1)*bytesize);
                     in=archivo_enviar.read(sendBytes);
