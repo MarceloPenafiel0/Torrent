@@ -28,7 +28,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
             tracker = (TrackerInt) Naming.lookup("rmi://" + IPNAme);
             String []dir = tracker.getAddress(FileName);
             for (int i=0;i<dir.length;i++){
-                HiloConexion hilo = new HiloConexion(dir[i]);
+                HiloConexion hilo = new HiloConexion(dir[i],tracker,FileName);
             }
         }catch (Exception e){
             

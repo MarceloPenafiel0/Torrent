@@ -5,7 +5,10 @@
  */
 package ClienteRMI;
 
+import RemoteInterface.ServerInt;
+import RemoteInterface.TrackerInt;
 import ServerRMI.Server;
+import TrackerRMI.Tracker;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -19,23 +22,30 @@ import java.util.logging.Logger;
  */
 public class HiloConexion  extends Thread{
     String ipServer;
-    Server servidor;
-    public HiloConexion(String ipServer){
+    ServerInt servidor;
+    TrackerInt tracker;
+    String fileName;
+    public HiloConexion(String ipServer, TrackerInt tracker,String fileName){
         this.ipServer = ipServer;
+        this.tracker = tracker;
+        this.fileName = fileName;
     }
     
     @Override
     public void run() {
-        
+        conectarServer();
     }
     
     public void conectarServer(){
         while(true){
             try {
-                servidor = (Server) Naming.lookup("rmi://"+ipServer);
-                
+                servidor = (ServerInt) Naming.lookup("rmi://"+ipServer);
+                int numConjuntos = tracker.
+                for (int k = 0;k<)
+                //servidor.transferGroup(client, MIN_PRIORITY, MIN_PRIORITY, NORM_PRIORITY, fileName);
             } catch (Exception ex) {
-                Logger.getLogger(HiloConexion.class.getName()).log(Level.SEVERE, null, ex);
+                ipServer = tracker.getAltAddress(0, fileName);
+                //ex.printStackTrace();
             } 
         }
     }

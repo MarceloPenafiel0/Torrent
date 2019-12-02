@@ -81,4 +81,10 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
             System.out.println("No se pudo abrir el archivo");
         }
     }
+
+    public int getNumConjuntos() {
+        return lastIP;
+    }
+    
+    
 }
