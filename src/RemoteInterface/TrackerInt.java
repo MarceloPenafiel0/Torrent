@@ -6,8 +6,8 @@ public interface TrackerInt extends Remote {
 
     String[] getAddress(String FileName, String IP);
 
-    String getAltAddress(int index);
+    String getAltAddress(int index,String FileName);
 
-    void updateAddress(String IP);
+    void updateAddress(String IP,String FileName);
 
 }
