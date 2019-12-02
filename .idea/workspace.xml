@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9a83063-2687-4e7f-8ae9-bd0d3c6c6876" name="Default Changelist" comment="Creacion de Paquete Cliente">
+    <list default="true" id="b9a83063-2687-4e7f-8ae9-bd0d3c6c6876" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteRMI/HiloConexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteRMI/HiloConexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RemoteInterface/TrackerInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RemoteInterface/TrackerInt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerRMI/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerRMI/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TrackerRMI/Tracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrackerRMI/Tracker.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575317942627</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Creacion de Paquete Cliente">
+      <created>1575319995652</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1575319995652</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
