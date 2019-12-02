@@ -16,15 +16,17 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
     private Map<Integer, Object[]> map;
     private String hash;
     private TrackerInt tracker;
+    private String FileName;
     protected Cliente(String FileName, Map<Integer, Object[]> map, String hash) throws RemoteException {
         this.map=map;
         this.hash=hash;
+        this.FileName = FileName;
     }
 
     public void startDownload(String IPNAme){
         try {
             tracker = (TrackerInt) Naming.lookup("rmi://" + IPNAme);
-            String []dir = tracker.getAddress(IPNAme);
+            String []dir = tracker.getAddress(FileName);
             for (int i=0;i<dir.length;i++){
                 HiloConexion hilo = new HiloConexion(dir[i]);
             }
