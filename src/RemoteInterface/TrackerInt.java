@@ -4,7 +4,7 @@ import java.rmi.Remote;
 
 public interface TrackerInt extends Remote {
 
-    String[] getAddress(String FileName, String IP);
+    String[] getAddress(String FileName);
 
     String getAltAddress(int index,String FileName);
 

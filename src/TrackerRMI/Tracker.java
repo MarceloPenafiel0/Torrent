@@ -40,7 +40,7 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
 
     }
     @Override
-    public synchronized String[] getAddress(String FileName, String IP) {
+    public synchronized String[] getAddress(String FileName) {
         fileInf = archivosDisponibles.get(FileName);
         int num = fileInf.getNumConjuntos();
         lastIP = num;
