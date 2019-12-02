@@ -4,7 +4,6 @@ import RemoteInterface.TrackerInt;
 import trackerServer.HiloTracker;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.ServerSocket;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -16,8 +15,6 @@ import java.util.Map;
 public class Tracker extends UnicastRemoteObject implements TrackerInt {
 
     private Map<String,FileInformation> archivosDisponibles ;
-    private ServerSocket socketServer;
-    private ArrayList<HiloTracker> listaHilosEnEjecucion = new ArrayList<>();
     private final int PUERTOT = 1099;//puerto del tracker
     private FileInformation fileInf;
     private int lastIP;
@@ -49,17 +46,18 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
         lastIP = num;
         String [] address = new String[num];
         for (int i =0;i<num;i++){
-            address[i]=getIP(i);
+            address[i]=getIP(i,FileName);
         }
         return address;
     }
 
     @Override
-    public String getAltAddress(int index) {
-        return getIP(0);
+    public String getAltAddress(int index,String FileName) {
+        return getIP(0,FileName);
     }
 
-    public synchronized String getIP(int actualPosition){
+    public synchronized String getIP(int actualPosition,String FileName){
+        fileInf=archivosDisponibles.get(FileName);
         if (actualPosition+1>=fileInf.getListaIPs().size()){
             actualPosition = -1;
         }
@@ -67,7 +65,8 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
     }
 
     @Override
-    public void updateAddress(String IP){
+    public void updateAddress(String IP,String FileName){
+        fileInf = archivosDisponibles.get(FileName);
         fileInf.modifyData(IP);
         this.grabarObjeto();
     }
