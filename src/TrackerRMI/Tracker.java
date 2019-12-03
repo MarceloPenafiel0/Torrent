@@ -1,10 +1,11 @@
 package TrackerRMI;
 
 import RemoteInterface.TrackerInt;
-import trackerServer.HiloTracker;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -70,6 +71,8 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
         fileInf.modifyData(IP);
         this.grabarObjeto();
     }
+    
+    
 
     public synchronized void grabarObjeto(){
         try{
@@ -80,6 +83,47 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
         }catch(IOException e){
             System.out.println("No se pudo abrir el archivo");
         }
+    }
+
+    @Override
+    public boolean createTorrent(String nombreArchivo) throws IOException {
+        String data = "";
+        try {
+            data += InetAddress.getLocalHost().getHostAddress()+"\n";
+            data += 6000+"\n";
+            data += nombreArchivo+"\n";
+            String ip = InetAddress.getLocalHost().getHostAddress();
+            FileInformation fileInf = new FileInformation(nombreArchivo,ip);
+            archivosDisponibles.put(nombreArchivo, fileInf);
+            grabarObjeto();
+            data += fileInf.getNumPartesArchivo()+"\n";
+            data += codifyFile("./.clonedFiles/"+nombreArchivo+"\n");
+            String []a = nombreArchivo.split("\\.");
+            String ruta = a[0]+".torrent";
+            File archivo = new File(ruta);
+            BufferedWriter bw;
+            bw = new BufferedWriter(new FileWriter(archivo));
+            bw.write(data);
+            bw.close();
+        } catch (UnknownHostException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    public String codifyFile(String nombre) throws IOException{
+        String data = "";
+        try {
+            BufferedInputStream archivo = new BufferedInputStream(new FileInputStream(nombre));
+            byte[] ar = new byte[40000];
+            int in;
+            while ((in=archivo.read(ar))!=-1)
+                data += clientPart.SHA1.SHA1(ar);
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return data;
     }
 
     

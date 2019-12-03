@@ -1,5 +1,6 @@
 package RemoteInterface;
 
+import java.io.IOException;
 import java.rmi.Remote;
 
 public interface TrackerInt extends Remote {
@@ -10,5 +11,6 @@ public interface TrackerInt extends Remote {
 
     void updateAddress(String IP,String FileName);
 
+    public boolean createTorrent(String nombreArchivo) throws IOException;
 
 }
