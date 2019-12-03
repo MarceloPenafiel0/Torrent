@@ -17,7 +17,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
     private String hash;
     private TrackerInt tracker;
     private String FileName;
-    protected Cliente(String FileName, Map<Integer, Object[]> map, String hash) throws RemoteException {
+    public Cliente(String FileName, Map<Integer, Object[]> map, String hash) throws RemoteException {
         this.map=map;
         this.hash=hash;
         this.FileName = FileName;

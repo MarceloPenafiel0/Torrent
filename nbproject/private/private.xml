@@ -4,15 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/ClienteRMI/Cliente.java</file>
-            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/RemoteInterface/TrackerInt.java</file>
-            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/RemoteInterface/ClientInt.java</file>
-            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/RemoteInterface/ServerInt.java</file>
+            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/principal/tracker/Main.java</file>
             <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/ServerRMI/Server.java</file>
-            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/serverPart/Server.java</file>
-            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/ClienteRMI/HiloControlArchivo.java</file>
-            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/serverPart/HiloServidor.java</file>
             <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/ClienteRMI/HiloConexion.java</file>
-            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/TrackerRMI/Tracker.java</file>
+            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/C_S_RMI/main.java</file>
+            <file>file:/B:/DeberesQuintoCiclo/SistemasDistribuidos/Torrent/src/principal/main.java</file>
         </group>
     </open-files>
 </project-private>

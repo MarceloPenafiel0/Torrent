@@ -28,8 +28,7 @@ public class FileInformation implements Serializable{
         if (numPartesArchivo == 0){
             numPartesArchivo = 1;
         }
-        modifyData(firstIP);
-        
+        modifyData(firstIP);   
     }
     
     public void modifyData(String ip){
