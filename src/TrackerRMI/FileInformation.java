@@ -19,12 +19,12 @@ public class FileInformation implements Serializable{
     private ArrayList<String> listaIPs;
     private int numPeersQueTienenArchivo,numPartesArchivo,numConjuntos;
     
-    public FileInformation(String nombreArchivo, String firstIP){
+    public FileInformation(String nombreArchivo, String firstIP, int partesArchivo){
         this.nombreArchivo = nombreArchivo;
         listaIPs = new ArrayList<>();
         //listaIPs.add(firstIP);
         this.numPeersQueTienenArchivo = 1;
-        this.numPartesArchivo = (int)Math.ceil( (new File(nombreArchivo).length()) / 60000);
+        this.numPartesArchivo = partesArchivo;//(int)Math.ceil( (new File(nombreArchivo).length()) / 60000);
         if (numPartesArchivo == 0){
             numPartesArchivo = 1;
         }

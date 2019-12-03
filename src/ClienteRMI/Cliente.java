@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,8 +36,8 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
         this.hash=hash;
         this.FileName = FileName;
     }*/
-    public Cliente()throws RemoteException{
-        map = new TreeMap<Integer, Object[]>();
+    public Cliente(TrackerInt tracker)throws RemoteException{
+        this.tracker = tracker;
     }
 
     public void startDownload(String IPNAme,String FileName,String hash,Map<Integer, Object[]> map){
@@ -44,7 +45,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
         this.FileName = FileName;
         this.map = map;
         try {
-            tracker = (TrackerInt) Naming.lookup("rmi://" + IPNAme);
+            
             String []dir = tracker.getAddress(FileName);
             for (int k=0;k<dir.length;k++){
                 HiloConexion hilo = new HiloConexion(dir[k],tracker,FileName,k,this,dir.length,0);
@@ -57,7 +58,7 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
 
     @Override
     public synchronized boolean sendData(byte[] data, int len, int numPart) throws RemoteException {
-        byte [] recievedData = new byte[bytesize];
+        byte [] recievedData = data;
         byte [] trash = new byte[bytesize];
         String calculatedHash="";
         String controlHash="";
@@ -128,9 +129,10 @@ public class Cliente extends UnicastRemoteObject implements ClientInt {
             String path = jf.getSelectedFile().getPath();
             //copyFile(path, name);
             copyFile(path, "./.clonedFiles/"+name);
+            int numPartes = (int)Math.ceil( (new File("./.clonedFiles/"+name).length()) / 60000);
             try {
                 //necesito ver como me conecto al torrent, obtener direccion ip del torrent sin tener un .torrent de donde leer.
-                tracker.createTorrent(name);
+                tracker.createTorrent(name,InetAddress.getLocalHost().getHostAddress(),numPartes);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "NO SE HA CREADO TORRENT. HA OCURRIDO UN ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
             }

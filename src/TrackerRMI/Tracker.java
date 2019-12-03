@@ -86,29 +86,24 @@ public class Tracker extends UnicastRemoteObject implements TrackerInt {
     }
 
     @Override
-    public boolean createTorrent(String nombreArchivo) throws IOException {
+    public boolean createTorrent(String nombreArchivo, String primeraIP, int numPartes) throws IOException {
         String data = "";
-        try {
-            data += InetAddress.getLocalHost().getHostAddress()+"\n";
-            data += 6000+"\n";
-            data += nombreArchivo+"\n";
-            String ip = InetAddress.getLocalHost().getHostAddress();
-            FileInformation fileInf = new FileInformation(nombreArchivo,ip);
-            archivosDisponibles.put(nombreArchivo, fileInf);
-            grabarObjeto();
-            data += fileInf.getNumPartesArchivo()+"\n";
-            data += codifyFile("./.clonedFiles/"+nombreArchivo+"\n");
-            String []a = nombreArchivo.split("\\.");
-            String ruta = a[0]+".torrent";
-            File archivo = new File(ruta);
-            BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(archivo));
-            bw.write(data);
-            bw.close();
-        } catch (UnknownHostException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
+        //data += InetAddress.getLocalHost().getHostAddress()+"\n";
+        //data += 6000+"\n";
+        //data += nombreArchivo+"\n";
+        //String ip = InetAddress.getLocalHost().getHostAddress();
+        FileInformation fileInf = new FileInformation(nombreArchivo,primeraIP,numPartes);
+        archivosDisponibles.put(nombreArchivo, fileInf);
+        grabarObjeto();
+        //data += fileInf.getNumPartesArchivo()+"\n";
+        //data += codifyFile("./.clonedFiles/"+nombreArchivo+"\n");
+        //String []a = nombreArchivo.split("\\.");
+        //String ruta = a[0]+".torrent";
+        //File archivo = new File(ruta);
+        //BufferedWriter bw;
+        //bw = new BufferedWriter(new FileWriter(archivo));
+        //bw.write(data);
+        //bw.close();
         return true;
     }
     

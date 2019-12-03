@@ -11,6 +11,6 @@ public interface TrackerInt extends Remote {
 
     void updateAddress(String IP,String FileName);
 
-    public boolean createTorrent(String nombreArchivo) throws IOException;
+    public boolean createTorrent(String nombreArchivo,String primeraIP, int numPartes) throws IOException;
 
 }

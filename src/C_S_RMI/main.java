@@ -28,7 +28,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class main {
     public static String IP="";
     public static void main(String[] args) {
-        try {
             /*try {
             
             java.rmi.registry.LocateRegistry.createRegistry(1099);
@@ -45,22 +44,33 @@ public class main {
             }catch (MalformedURLException e){
             System.out.println("Error 00NR");
             }*/
+            //Recuperar tracker remoto ------> Done
+            TrackerInt tracker;
+            Cliente client;
+            try{
+                tracker = (TrackerInt)Naming.lookup("rmi://"+IP);
+                client = new Cliente(tracker);
+                client.createTorrent();
+                //download(client);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            //Iniciar Objeto cliente -------> Por hacer
+           
+            //OPciones de seleccion para usuario ------> Por hacer
             
             //para crear torrent
-            Cliente c = new Cliente();
-            c.createTorrent();
-        } catch (RemoteException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            /*Cliente c = new Cliente();
+            c.createTorrent();*/
        
     }
 
     
     //falta direccion .torrent
-    public static void download (){
+    public static void download (Cliente client){
         
         try {
-            Cliente client = new Cliente();
+            
             String direccion = client.selectFile();
             Map<Integer, Object[]> map = Collections.synchronizedMap(new HashMap<>());
             //leer el .torrent
